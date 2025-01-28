@@ -70,7 +70,7 @@ static void render(struct Game *self) {
 }
 
 static bool init_sdl(void) {
-    SDL_SetAppMetadata("Tetris", "1.0", "com.inunix3.tetris");
+    SDL_SetAppMetadata("wetris", "1.0", "com.inunix3.wetris");
     SDL_srand(0);
 
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
@@ -118,7 +118,7 @@ static void set_icon(struct Game *self, const char *path) {
 
 static bool init_window(struct Game *self) {
     self->window =
-    SDL_CreateWindow("Fuchs' Tetris", self->width, self->height, 0);
+    SDL_CreateWindow("Wetris", self->width, self->height, 0);
 
     if (!self->window) {
         log_sdl_error();
