@@ -50,11 +50,11 @@ sudo cmake --install .
 | Key           | Action                  |
 |---------------|-------------------------|
 | `escape`      | Quit                    |
-| `a` / `Left`  | Move left               |
-| `d` / `Right` | Move right              |
+| `a` / `left`  | Move left               |
+| `d` / `right` | Move right              |
 | `q`           | Rotate counterclockwise |
 | `e`           | Rotate clockwise        |
-| `s` / 'Down'  | Speed up falling        |
+| `s` / `down`  | Speed up falling        |
 | `space`       | Drop                    |
 | `p`           | Pause                   |
 
