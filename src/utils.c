@@ -4,7 +4,7 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/utils.h>
+#include <wetris/utils.h>
 
 #include <SDL3/SDL.h>
 

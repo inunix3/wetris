@@ -3,7 +3,7 @@
 
 cmake_minimum_required(VERSION 3.11)
 
-project(tetris VERSION 1.0.0 LANGUAGES C)
+project(wetris VERSION 1.0.0 LANGUAGES C)
 
 option(VENDORED_LIBS "Use vendored libs" OFF)
 option(USE_ASAN "Enable AddressSanitizer" OFF)
@@ -21,7 +21,7 @@ else()
     message(WARNING "compiler is unknown to ${PROJECT_NAME}")
 endif()
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 

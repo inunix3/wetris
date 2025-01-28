@@ -4,7 +4,7 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/piece.h>
+#include <wetris/piece.h>
 
 #include <string.h>
 

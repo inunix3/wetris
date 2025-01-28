@@ -4,7 +4,7 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/timer.h>
+#include <wetris/timer.h>
 
 #include <SDL3/SDL.h>
 

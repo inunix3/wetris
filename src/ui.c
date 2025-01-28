@@ -4,9 +4,9 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/ui.h>
+#include <wetris/ui.h>
 
-#include <tetris/game.h>
+#include <wetris/game.h>
 
 #define OUTER_SPACING 16
 

@@ -5,8 +5,8 @@
  */
 
 #include <SDL3_image/SDL_image.h>
-#include <tetris/tileset.h>
-#include <tetris/utils.h>
+#include <wetris/tileset.h>
+#include <wetris/utils.h>
 
 bool tileset_load(
     struct TileSet *tileset, SDL_Renderer *renderer, const char *path

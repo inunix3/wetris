@@ -4,9 +4,9 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/font.h>
+#include <wetris/font.h>
 
-#include <tetris/utils.h>
+#include <wetris/utils.h>
 
 static bool is_ascii(int ch) {
     /* Includes all digits, small and capitalized latin letters, punctuation and

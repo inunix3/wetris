@@ -4,9 +4,9 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/sfx_store.h>
+#include <wetris/sfx_store.h>
 
-#include <tetris/utils.h>
+#include <wetris/utils.h>
 
 bool sfx_store_init(struct SfxStore *self) {
     const char *names[TOTAL_SFX] = {

@@ -4,7 +4,7 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/font_store.h>
+#include <wetris/font_store.h>
 
 bool font_store_init(struct FontStore *self, struct SDL_Renderer *renderer) {
     const char *filenames[TOTAL_FONTS] = {

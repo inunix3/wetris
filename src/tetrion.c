@@ -5,11 +5,11 @@
  */
 
 #include <stdio.h>
-#include <tetris/tetrion.h>
+#include <wetris/tetrion.h>
 
-#include <tetris/direction.h>
-#include <tetris/tileset.h>
-#include <tetris/utils.h>
+#include <wetris/direction.h>
+#include <wetris/tileset.h>
+#include <wetris/utils.h>
 
 #include <stdlib.h>
 

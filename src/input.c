@@ -4,7 +4,7 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/input.h>
+#include <wetris/input.h>
 
 struct InputState input_new(void) { return (struct InputState){0}; }
 

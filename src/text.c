@@ -4,9 +4,9 @@
  * This file is licensed under the MIT License (see LICENSE.md).
  */
 
-#include <tetris/text.h>
+#include <wetris/text.h>
 
-#include <tetris/utils.h>
+#include <wetris/utils.h>
 
 #define TEMP_BUF_SIZE (511 + 1)
 
