@@ -6,6 +6,10 @@ A tetris clone written in C11 and using SDL3.
   <img src="screenshots/screenshot.png" alt="a screenshot of the tetris">
 </p>
 
+*TODO: rewrite the building and installation sections for complete instructions for compilation on Windows,
+and list of needed libraries on Linux. Also it might be worth to write shell and powershell scripts for
+downloading all dependencies when building with -DVENDORED_LIBS=ON.*
+
 ## Building
 
 If you're on Windows, you can obtain tetris from the
