@@ -62,7 +62,7 @@ static bool map_lines(struct Text *self) {
             size_t new_capacity = self->line_capacity + 5;
 
             self->lines =
-            mem_realloc(self->lines, new_capacity * sizeof(struct Line));
+                mem_realloc(self->lines, new_capacity * sizeof(struct Line));
 
             if (!self->lines) {
                 return false;
@@ -171,8 +171,7 @@ bool text_vset(struct Text *self, const char *fmt, va_list vargs) {
     self->len = len - 1;
     font_measure(self->font, fmt, &self->rect.w, &self->rect.h);
 
-    /* TODO: this code would be much better if we'd introduce a vector
-     * abstraction (dynamic array). */
+    /* TODO: this code would be better if we introduce a vector abstraction (dynamic array). */
 
     self->line_count = 0;
     self->line_capacity = 5;
