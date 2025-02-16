@@ -18,12 +18,14 @@
 #include <stdbool.h>
 
 #define FAST_FALL_INTERVAL 50     /* ms */
-#define DEFAULT_FALL_INTERVAL 320 /* ms */
+#define DEFAULT_FALL_INTERVAL 350 /* ms */
 #define MIN_FALL_INTERVAL 50      /* ms */
-#define SPEED_UP_RATE 30          /* ms */
-#define TETRION_HEIGHT 21         /* the corner is also counted */
-#define TETRION_WIDTH 12          /* corners are counted too */
-#define MAX_SCORE_PER_LEVEL 500
+#define MAX_FALL_INTERVAL 320     /* ms */
+#define SCORE_SPEED_RATE 30       /* ms */
+#define SPEED_UP_RATE 5
+#define TETRION_HEIGHT 21 /* the corner is also counted */
+#define TETRION_WIDTH 12  /* corners are counted too */
+#define MAX_SCORE_PER_LEVEL 100
 
 #define SCORE_ROW_DELETED 10
 #define SCORE_MOVE 1
@@ -46,6 +48,7 @@ struct Tetrion {
     struct Piece piece;
     struct Piece next_piece;
     uint64_t saved_fall_interval;
+    bool lock_saved_fall_interval;
     struct Timer ticker;
     enum TetrionState state;
     bool dropped;
