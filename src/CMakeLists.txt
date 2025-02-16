@@ -54,8 +54,8 @@ elseif (USE_UBSAN)
   target_link_options(wetris PRIVATE -fsanitize=undefined)
 endif()
 
-if (WIN32 AND $<$<CONFIG:Release>)
-    set_target_properties(wetris PROPERTIES WIN32_EXECUTABLE)
+if (WIN32)
+    set_target_properties(wetris PROPERTIES WIN32_EXECUTABLE $<IF:$<CONFIG:Release>,ON,OFF>)
 endif()
 
 target_compile_options(wetris PRIVATE ${COMPILE_OPTIONS})
@@ -123,8 +123,8 @@ exec ./wetris
         )
     endif()
 else()
-    install(TARGETS wetris)
-    install(DIRECTORY "${PROJECT_SOURCE_DIR}/assets")
+    install(TARGETS wetris DESTINATION bin)
+    install(DIRECTORY "${PROJECT_SOURCE_DIR}/assets" DESTINATION bin)
 
     if (BUILD_SHARED_LIBS)
         install(
@@ -133,6 +133,7 @@ else()
             "${SDL_IMAGE_PATH}"
             "${SDL_MIXER_PATH}"
             "${SDL_TTF_PATH}"
-        )
+            DESTINATION bin
+         )
     endif()
 endif()
