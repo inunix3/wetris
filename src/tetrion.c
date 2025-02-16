@@ -160,12 +160,14 @@ static void rotate_piece_90_cnt(struct Tetrion *self) {
 
 static void speed_up_fall(struct Tetrion *self) {
     self->saved_fall_interval = self->ticker.interval;
-    self->ticker.interval /= 5;
+    self->lock_saved_fall_interval = true;
+    self->ticker.interval /= SPEED_UP_RATE;
     timer_restart(&self->ticker);
 }
 
 static void slow_down_fall(struct Tetrion *self) {
     self->ticker.interval = self->saved_fall_interval;
+    self->lock_saved_fall_interval = false;
     timer_restart(&self->ticker);
 }
 
@@ -222,12 +224,24 @@ static void add_score(struct Tetrion *self, int score) {
 
         sfx_store_play(self->sfx_store, SFX_LEVEL_UP);
 
-        self->ticker.interval -= SPEED_UP_RATE;
-        self->ticker.interval = SDL_clamp(
-            self->ticker.interval, MIN_FALL_INTERVAL, DEFAULT_FALL_INTERVAL
-        );
+        if (self->lock_saved_fall_interval) {
+            self->ticker.interval -= SCORE_SPEED_RATE / SPEED_UP_RATE;
+            self->ticker.interval = SDL_clamp(
+                self->ticker.interval, MIN_FALL_INTERVAL, MAX_FALL_INTERVAL
+            );
 
-        self->saved_fall_interval = self->ticker.interval;
+            self->saved_fall_interval -= SCORE_SPEED_RATE;
+            self->saved_fall_interval = SDL_clamp(
+                self->saved_fall_interval, MIN_FALL_INTERVAL, MAX_FALL_INTERVAL
+            );
+        } else {
+            self->ticker.interval -= SCORE_SPEED_RATE;
+            self->ticker.interval = SDL_clamp(
+                self->ticker.interval, MIN_FALL_INTERVAL, MAX_FALL_INTERVAL
+            );
+
+            self->saved_fall_interval = self->ticker.interval;
+        }
     }
 
     self->score += score;
@@ -363,6 +377,7 @@ void tetrion_reset(struct Tetrion *self) {
     self->piece = gen_piece(self);
     self->next_piece = gen_piece(self);
     self->saved_fall_interval = DEFAULT_FALL_INTERVAL;
+    self->lock_saved_fall_interval = false;
     self->ticker = timer_new(DEFAULT_FALL_INTERVAL);
     self->state = TETRION_STATE_NOT_STARTED;
     self->dropped = false;
