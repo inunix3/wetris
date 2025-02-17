@@ -6,48 +6,57 @@ A tetris clone written in C11 and using SDL3.
   <img src="screenshots/screenshot.png" alt="a screenshot of the tetris">
 </p>
 
-*TODO: rewrite the building and installation sections for complete instructions for compilation on Windows,
-and list of needed libraries on Linux. Also it might be worth to write shell and powershell scripts for
-downloading all dependencies when building with -DVENDORED_LIBS=ON.*
-
-## Building
-
-If you're on Windows, you can obtain tetris from the
-[Releases](https://github.com/inunix3/wetris/releases) page.
-
-Create a build directory in the project root:
+## Building on Linux
 
 ```
 mkdir build; cd build
-```
-
-Invoke cmake something like this:
-
-```
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -G 'your favorite generator' -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
 ```
 
 Currently SDL3 is not widely installable from repositories, so you'll probably need to pass
 `-DVENDORED_LIBS=ON` to build SDL3 and its extensions.
 
-If you're on Windows, you also need to pass this flag, and `-DSDLIMAGE_VENDORED=ON
--DSDLMIXER_VENDORED=ON -DSDLTTF_VENDORED=ON` too.
-
-Next build the tetris:
-
-```
-cmake --build .
-```
-
-After a successful building, binary `wetris` will be lying in the src directory.
-
-### Installation
+After a successful building, binary `src/wetris` will be lying in the build directory.
 
 If you like my tetris, you can also install it from the build directory:
 
 ```
 sudo cmake --install .
 ```
+
+## Building on Windows
+
+You can obtain prebuilt binaries from the [Releases](https://github.com/inunix3/wetris/releases) page.
+
+### Compiling from sources
+
+Create a build directory:
+
+```
+mkdir build; cd build
+```
+
+If you're going to use multi-config generator like Visual Studio, these flags must be passed, and
+the build type must be specified in build-time:
+
+```
+cmake -G 'your favorite generator' -DVENDORED_LIBS=ON -DSDLIMAGE_VENDORED=ON -DSDLMIXER_VENDORED=ON -DSDLTTF_VENDORED=ON ..
+cmake --build . --config Release
+```
+
+If you wish to use single-config generator like MinGW makefiles:
+
+```
+cmake -G 'your favorite generator' -DCMAKE_BUILD_TYPE=Release -DVENDORED_LIBS=ON -DSDLIMAGE_VENDORED=ON -DSDLMIXER_VENDORED=ON -DSDLTTF_VENDORED=ON ..
+cmake --build .
+```
+
+Although if you're using MinGW, you can actually try to copy SDL3 and its extensions into
+compiler directories from packages marked as devel.
+The SDL libraries can be obtained from [their repositories](https://github.com/libsdl-org).
+
+After a successful building, binary `src/wetris.exe` will be lying in the build directory.
 
 ## Controls
 
