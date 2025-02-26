@@ -80,7 +80,7 @@ I'd appreciate it.
 
 Used font is **The PC Paint Font Collection** made by [codeman38](https://www.zone38.net/font/).
 
-Graphics were made in Aseprite, sound effects in MilkyTracker and Audacity.
+Graphics were made in Aseprite and Gimp, sound effects in MilkyTracker and Audacity.
 
 ## License
 
