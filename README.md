@@ -76,6 +76,12 @@ After a successful building, binary `src/wetris.exe` will be lying in the build 
 If you have found a problem or have a suggestion, feel free to open an issue or send a pull request.
 I'd appreciate it.
 
+## Notice
+
+Used font is **The PC Paint Font Collection** made by [codeman38](https://www.zone38.net/font/).
+
+Graphics were made in Aseprite, sound effects in MilkyTracker and Audacity.
+
 ## License
 
 wetris is licensed under the [MIT license](LICENSE.md).
